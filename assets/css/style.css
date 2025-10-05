@@ -1,0 +1,119 @@
+/* style.css - Studio M&M */
+/* Paleta: azul (primario), blanco, amarillo (acento), gris oscuro */
+
+:root{
+  --azul:#0a2540;       /* azul profundo */
+  --amarillo:#ffca3a;   /* acento */
+  --blanco:#ffffff;
+  --gris:#6c757d;
+  --bg:#f8f9fa;
+}
+
+/* Reset visual básico */
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #222;
+  background: var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Navbar */
+.navbar { background: var(--azul); }
+.navbar .brand-text { font-weight:600; letter-spacing:0.4px; color:var(--blanco); }
+.logo { width:38px; height:38px; object-fit:contain; }
+
+/* HERO */
+.hero-section{
+  position: relative;
+  min-height: 60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position: absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.45) contrast(1.05);
+  z-index:0;
+}
+.hero-overlay{
+  position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,37,64,0.45), rgba(10,37,64,0.6));
+  z-index:1;
+}
+.hero-content{ position:relative; z-index:2; padding: 6rem 0; }
+.btn-cta{
+  background: var(--amarillo);
+  color: var(--azul);
+  font-weight:700;
+  border-radius: 999px;
+  padding: .6rem 1.2rem;
+  box-shadow: 0 6px 18px rgba(10,37,64,0.18);
+}
+.btn-cta:hover { transform: translateY(-3px); transition: .18s; }
+
+/* GALERÍA - cartas Masonry */
+#masonry-grid {
+  /* masonry will set positions; use Bootstrap cols as wrappers */
+}
+.portfolio-item {
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: transform .28s ease, box-shadow .28s ease;
+  background:#fff;
+}
+.portfolio-item img {
+  width:100%;
+  height: auto;
+  display:block;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.portfolio-item:hover img { transform: scale(1.08); }
+
+.portfolio-meta {
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding: .6rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0,0,0,0));
+  color: #fff;
+  font-size: .95rem;
+}
+
+/* Filters active */
+.filter-btn.active { background: var(--azul); color: var(--blanco); border-color: var(--azul); }
+
+/* About */
+#about h3 { color: var(--azul); font-weight:700; }
+.social-icon { width:20px; margin-right:8px; vertical-align:middle; opacity:0.9; }
+
+/* Contact / WhatsApp */
+#whatsapp-btn { border-radius: 999px; padding: .6rem 1rem; }
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 8px 20px rgba(10,37,64,0.18);
+  background: var(--amarillo);
+}
+.whatsapp-float img { width:28px; }
+
+/* Footer */
+footer { background:#071627; }
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .hero-content{ padding:4rem 0; }
+  .logo { width:32px; height:32px; }
+}
