@@ -1,24 +1,15 @@
-// AOS Init
-// AOS init (si no lo tienes ya)
-AOS.init({ duration: 900, once: true });
-
-// GLightbox (modal para zoom)
-const lightbox = GLightbox({
-  selector: '.glightbox',
-  touchNavigation: true,
-  loop: true
-});
-
-// Masonry: espera a que las imágenes hayan cargado
 document.addEventListener('DOMContentLoaded', function() {
+  // Animaciones
   AOS.init({ duration: 900, once: true });
 
+  // GLightbox
   const lightbox = GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
     loop: true
   });
 
+  // Masonry
   const grid = document.querySelector('#gallery');
   if (grid) {
     imagesLoaded(grid, function() {
@@ -26,25 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         percentPosition: true,
-        gutter: 12
+        gutter: 8, // menos espacio entre columnas
+        fitWidth: false // evita scroll horizontal
       });
+
       lightbox.on('open', () => msnry.layout());
+      window.addEventListener('resize', () => msnry.layout());
     });
   }
-});
-
-// GLightbox Modal
-/*const lightbox = GLightbox({
-  selector: '.glightbox',
-  touchNavigation: true,
-  loop: true
-});*/
-
-// Parallax Effect for Hero and About
-window.addEventListener('scroll', function() {
-  const hero = document.querySelector('.hero');
-  const about = document.querySelector('.about-section');
-  let offset = window.pageYOffset;
-  if (hero) hero.style.backgroundPositionY = offset * 0.5 + 'px';
-  if (about) about.style.backgroundPositionY = offset * 0.3 + 'px';
 });

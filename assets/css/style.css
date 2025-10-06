@@ -6,14 +6,9 @@ body {
 }
 
 /* Navbar */
-.navbar {
-  transition: background 0.3s;
-}
-.navbar-brand img {
-  height: 50px;
-}
+.navbar-brand img { height: 50px; }
 
-/* Hero with Parallax */
+/* Hero */
 .hero {
   background: url('../img/OIP.webp') center/cover no-repeat fixed;
   height: 100vh;
@@ -21,97 +16,156 @@ body {
 }
 .hero::after {
   content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: absolute; top:0; left:0; width:100%; height:100%;
   background: rgba(0,31,59,0.6);
 }
-.hero .container {
-  position: relative;
-  z-index: 2;
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #FFD700;
-}
-.hero p {
-  color: #fff;
-  font-size: 1.25rem;
-}
+.hero .container { position: relative; z-index: 2; }
+.hero h1 { color:#FFD700; font-size:3rem; font-weight:700; }
+.hero p { color:#fff; font-size:1.25rem; }
 .hero .btn-primary {
-  background-color: #FFD700;
-  border: none;
-  color: #001F3B;
-  font-weight: 600;
-  border-radius: 30px;
-  padding: 0.75rem 1.5rem;
-  transition: transform 0.3s;
+  background-color:#FFD700; border:none; color:#001F3B;
+  border-radius:30px; padding:0.75rem 1.5rem; transition:transform .3s;
 }
-.hero .btn-primary:hover {
-  transform: scale(1.05);
-}
+.hero .btn-primary:hover { transform:scale(1.05); }
 
-/* About Section */
+/* About * /
 .about-section {
-  background: url('../img/about-bg.jpg') center/cover fixed no-repeat;
+  background:url('../img/about-bg.jpg') center/cover fixed no-repeat;
+  position:relative; padding:6rem 2rem;
+}
+.about-section .overlay {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,31,59,0.7);
+}
+.about-section .container { position:relative; z-index:2; }
+*/
+
+/* === Sección "Quiénes Somos" con Parallax === */
+/* === SECCIÓN QUIÉNES SOMOS (parallax + overlay) === */
+.about-section {
   position: relative;
-  padding: 6rem 2rem;
+  background: url('../img/about-bg.jpg') center center / cover fixed no-repeat;
+  padding: 7rem 2rem;
+  overflow: hidden;
 }
 .about-section .overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,31,59,0.7);
+  background: rgba(0, 31, 59, 0.7);
+  z-index: 0;
 }
 .about-section .container {
   position: relative;
   z-index: 2;
 }
-
-/* Portfolio Masonry *//* === Masonry Portfolio === */
+.about-section h2 {
+  color: #FFD700;
+  font-weight: 700;
+}
+.about-section .about-img img {
+  border: 4px solid #FFD700;
+  border-radius: 12px;
+  transition: transform .4s ease;
+}
+.about-section .about-img img:hover {
+  transform: scale(1.03);
+}
+.about-section p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+.about-section .btn {
+  border: 2px solid #FFD700;
+  color: #FFD700;
+  border-radius: 25px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.about-section .btn:hover {
+  background-color: #FFD700;
+  color: #001F3B;
+  transform: scale(1.05);
+}
+/* === Masonry Portfolio === */
+/* === Masonry Portfolio (3 columnas fijas, sin margen extra) === */
 .portfolio-section {
   padding: 5rem 1rem;
   background: #f9f9f9;
+  overflow-x: hidden;
 }
 
 .grid {
+  display: block;
   width: 100%;
-  max-width: 1500px;
   margin: 0 auto;
+  padding: 0;
 }
 
-/* Elementos base Masonry */
 .grid-sizer,
 .grid-item {
-  width: 33.333%;
+  width: calc(33.333% - 10px); /* exacto para 3 columnas */
+  box-sizing: border-box;
 }
 
 .grid-item {
   float: left;
-  padding: 0.5rem;
+  padding: 5px;
+  margin: 0;
 }
 
 .grid-item a {
-  position: relative;
   display: block;
+  position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #fff;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform .3s ease;
 }
 
 .grid-item img {
   width: 100%;
+  height: auto;
   display: block;
-  border-radius: 12px;
+  border-radius: 10px;
   transition: transform .5s ease, filter .3s ease;
 }
 
 .grid-item:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
   filter: brightness(.9);
+}
+
+/* Overlay con texto */
+.item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,31,59,0.85));
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+  border-radius: 0 0 10px 10px;
+}
+.grid-item:hover .item-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .grid-sizer, .grid-item { width: calc(33.333% - 8px); }
+}
+@media (max-width: 768px) {
+  .grid-sizer, .grid-item { width: calc(50% - 8px); }
+}
+@media (max-width: 576px) {
+  .grid-sizer, .grid-item { width: 100%; }
 }
 
 /* Overlay de texto */
@@ -120,7 +174,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,31,59,0.85));
   color: #fff;
   opacity: 0;
@@ -132,34 +186,12 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Ajustes responsive */
-@media (max-width: 992px) {
-  .grid-sizer, .grid-item { width: 33.333%; } /* mantén 3 columnas en laptops */
-}
-@media (max-width: 768px) {
-  .grid-sizer, .grid-item { width: 50%; } /* 2 columnas en tablet */
-}
-@media (max-width: 576px) {
-  .grid-sizer, .grid-item { width: 100%; } /* 1 columna en móvil */
-}
+.item-overlay h3 { margin:0 0 .25rem; font-size:1.05rem; font-weight:600; }
+.item-overlay p { margin:0; font-size:.9rem; }
 
 /* WhatsApp floating button */
 .whatsapp-float {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 99;
-  width: 60px;
-  height: 60px;
+  position:fixed; bottom:25px; right:25px; z-index:99; width:60px; height:60px;
 }
-.whatsapp-float img {
-  width: 100%;
-  height: 100%;
-}
+.whatsapp-float img { width:100%; height:100%; }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .masonry { column-count: 1; }
-}
