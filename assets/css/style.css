@@ -1,119 +1,165 @@
-/* style.css - Studio M&M */
-/* Paleta: azul (primario), blanco, amarillo (acento), gris oscuro */
-
-:root{
-  --azul:#0a2540;       /* azul profundo */
-  --amarillo:#ffca3a;   /* acento */
-  --blanco:#ffffff;
-  --gris:#6c757d;
-  --bg:#f8f9fa;
-}
-
-/* Reset visual básico */
 body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #222;
-  background: var(--bg);
-  -webkit-font-smoothing:antialiased;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
-.navbar { background: var(--azul); }
-.navbar .brand-text { font-weight:600; letter-spacing:0.4px; color:var(--blanco); }
-.logo { width:38px; height:38px; object-fit:contain; }
+.navbar {
+  transition: background 0.3s;
+}
+.navbar-brand img {
+  height: 50px;
+}
 
-/* HERO */
-.hero-section{
+/* Hero with Parallax */
+.hero {
+  background: url('../img/OIP.webp') center/cover no-repeat fixed;
+  height: 100vh;
   position: relative;
-  min-height: 60vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
 }
-.hero-bg{
+.hero::after {
+  content: '';
   position: absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(0.45) contrast(1.05);
-  z-index:0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,31,59,0.6);
 }
-.hero-overlay{
-  position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,37,64,0.45), rgba(10,37,64,0.6));
-  z-index:1;
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
-.hero-content{ position:relative; z-index:2; padding: 6rem 0; }
-.btn-cta{
-  background: var(--amarillo);
-  color: var(--azul);
-  font-weight:700;
-  border-radius: 999px;
-  padding: .6rem 1.2rem;
-  box-shadow: 0 6px 18px rgba(10,37,64,0.18);
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FFD700;
 }
-.btn-cta:hover { transform: translateY(-3px); transition: .18s; }
+.hero p {
+  color: #fff;
+  font-size: 1.25rem;
+}
+.hero .btn-primary {
+  background-color: #FFD700;
+  border: none;
+  color: #001F3B;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  transition: transform 0.3s;
+}
+.hero .btn-primary:hover {
+  transform: scale(1.05);
+}
 
-/* GALERÍA - cartas Masonry */
-#masonry-grid {
-  /* masonry will set positions; use Bootstrap cols as wrappers */
+/* About Section */
+.about-section {
+  background: url('../img/about-bg.jpg') center/cover fixed no-repeat;
+  position: relative;
+  padding: 6rem 2rem;
 }
-.portfolio-item {
+.about-section .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,31,59,0.7);
+}
+.about-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Portfolio Masonry *//* === Masonry Portfolio === */
+.portfolio-section {
+  padding: 5rem 1rem;
+  background: #f9f9f9;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Elementos base Masonry */
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+
+.grid-item {
+  float: left;
+  padding: 0.5rem;
+}
+
+.grid-item a {
+  position: relative;
+  display: block;
   overflow: hidden;
   border-radius: 12px;
-  position: relative;
-  cursor: pointer;
-  transition: transform .28s ease, box-shadow .28s ease;
-  background:#fff;
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
 }
-.portfolio-item img {
-  width:100%;
-  height: auto;
-  display:block;
-  transition: transform .6s cubic-bezier(.2,.8,.2,1);
-}
-.portfolio-item:hover img { transform: scale(1.08); }
 
-.portfolio-meta {
-  position:absolute;
-  left:0; right:0; bottom:0;
-  padding: .6rem;
-  background: linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0,0,0,0));
+.grid-item img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: transform .5s ease, filter .3s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(.9);
+}
+
+/* Overlay de texto */
+.item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,31,59,0.85));
   color: #fff;
-  font-size: .95rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+  border-radius: 0 0 12px 12px;
+}
+.grid-item:hover .item-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Filters active */
-.filter-btn.active { background: var(--azul); color: var(--blanco); border-color: var(--azul); }
+/* Ajustes responsive */
+@media (max-width: 992px) {
+  .grid-sizer, .grid-item { width: 33.333%; } /* mantén 3 columnas en laptops */
+}
+@media (max-width: 768px) {
+  .grid-sizer, .grid-item { width: 50%; } /* 2 columnas en tablet */
+}
+@media (max-width: 576px) {
+  .grid-sizer, .grid-item { width: 100%; } /* 1 columna en móvil */
+}
 
-/* About */
-#about h3 { color: var(--azul); font-weight:700; }
-.social-icon { width:20px; margin-right:8px; vertical-align:middle; opacity:0.9; }
-
-/* Contact / WhatsApp */
-#whatsapp-btn { border-radius: 999px; padding: .6rem 1rem; }
+/* WhatsApp floating button */
 .whatsapp-float {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 999;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow: 0 8px 20px rgba(10,37,64,0.18);
-  background: var(--amarillo);
+  bottom: 25px;
+  right: 25px;
+  z-index: 99;
+  width: 60px;
+  height: 60px;
 }
-.whatsapp-float img { width:28px; }
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+}
 
-/* Footer */
-footer { background:#071627; }
-
-/* Responsive tweaks */
-@media (max-width:768px){
-  .hero-content{ padding:4rem 0; }
-  .logo { width:32px; height:32px; }
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .masonry { column-count: 1; }
 }
