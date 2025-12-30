@@ -1,0 +1,23 @@
+{
+    "name": "M&M Photography Studio",
+    "short_name": "M&M Photo",
+    "description": "Estudio fotogr\u00e1fico profesional \u2013 retratos, eventos y fotograf\u00eda art\u00edstica.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#061a2d",
+    "theme_color": "#061a2d",
+    "icons": [
+        {
+            "src": "assets/ico/favicon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/ico/favicon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

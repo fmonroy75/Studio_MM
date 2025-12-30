@@ -3,8 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio M&amp;M</title>
+  <meta name="description" content="Studio M&M - Fotografía y arte visual profesional desde Chile y Canadá. Capturamos tu luz, tu historia, tu arte.">
+  <meta name="keywords" content="fotografía, arte visual, Chile, Canadá, retratos, paisajes, fotografía profesional">
+  <meta name="author" content="Studio M&M">
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Studio M&amp;M - Fotografía y Arte Visual Profesional</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiomm.languageartlife.com/">
+  <meta property="og:title" content="Studio M&amp;M - Fotografía y Arte Visual Profesional">
+  <meta property="og:description" content="Fotografía y arte visual profesional desde Chile y Canadá. Capturamos tu luz, tu historia, tu arte. Descubre nuestro portafolio de paisajes, retratos y arte visual.">
+  <meta property="og:image" content="https://studiomm.languageartlife.com/assets/img/mm_studio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Studio M&M - Logo">
+  <meta property="og:site_name" content="Studio M&amp;M">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://studiomm.languageartlife.com/">
+  <meta name="twitter:title" content="Studio M&amp;M - Fotografía y Arte Visual Profesional">
+  <meta name="twitter:description" content="Fotografía y arte visual profesional desde Chile y Canadá. Capturamos tu luz, tu historia, tu arte.">
+  <meta name="twitter:image" content="https://studiomm.com/assets/img/mm_studio.png">
+  <meta name="twitter:image:alt" content="Studio M&M - Logo">
+  <meta name="twitter:creator" content="@StudioMM">
+
+  <!-- Favicon - ->
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+-->
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,25 +48,33 @@
   <!-- GLightbox -->
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#001F3B;">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="Studio M&M" height="50">Studio M&amp;M</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand fw-bold" href="#hero">
+        <img src="assets/img/mm_studio_trans.png" alt="Studio M&M"  class="me-2">
+        <span class="brand-text">Studio M&amp;M</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio">Portafolio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#hero">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portafolio</a></li>
+          
           <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
         </ul>
       </div>
@@ -41,35 +83,78 @@
 
   <!-- Hero Section -->
   <section class="hero d-flex align-items-center" id="hero">
-    <div class="container text-center text-white" data-aos="fade-up">
-      <h1>Capturamos tu luz, tu historia, tu arte.</h1>
-      <p>Fotografía y arte visual desde Chile y Canadá.</p>
-      <a href="#portfolio" class="btn btn-primary mt-3">Ver Portafolio</a>
+    <div class="hero-overlay"></div>
+    <div class="container text-center text-white position-relative" data-aos="fade-up">
+      <div class="hero-content">
+        <h1 class="hero-title mb-4">Capturamos tu luz, tu historia, tu arte.</h1>
+        <p class="hero-subtitle mb-5">Fotografía y arte visual profesional desde Chile y Canadá</p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary btn-hero me-3">
+            <i class="bi bi-images me-2"></i>Ver Portafolio
+          </a>
+          <a href="#contact" class="btn btn-outline-light btn-hero">
+            <i class="bi bi-envelope me-2"></i>Contáctanos
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="300">
+        <a href="#about" class="scroll-down">
+          <i class="bi bi-chevron-down"></i>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- About -->
 <!-- SECCIÓN QUIÉNES SOMOS -->
-<section id="about" class="about-section text-white text-center">
+<section id="about" class="about-section text-white">
   <div class="overlay"></div>
-  <div class="container position-relative" data-aos="fade-up">
-    <h2 class="mb-5 text-warning">Quiénes Somos</h2>
+  <div class="container position-relative">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Conócenos</span>
+      <h2 class="section-title mb-3">Quiénes Somos</h2>
+      <div class="title-divider"></div>
+    </div>
 
-    <div class="row align-items-center">
+    <div class="row align-items-center g-5">
       <!-- Imagen -->
-      <div class="col-md-5 mb-4 mb-md-0">
+      <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
         <div class="about-img">
-          <img src="assets/img/IMG-20170606-WA0024.jpg" alt="Fotógrafa Inna Medchuk" class="img-fluid rounded shadow-lg">
+          <div class="about-img-wrapper">
+            <img src="assets/img/IMG-20170606-WA0024.jpg" alt="Fotógrafa Inna Medchuk" class="img-fluid rounded">
+            <div class="img-decoration"></div>
+          </div>
         </div>
       </div>
 
       <!-- Texto -->
-      <div class="col-md-7 text-start">
-        <h3 class="fw-bold mb-3">Hola, somos Francisco e Inna</h3>
-        <p>
-          Somos Inna y Francisco: la fusión perfecta entre el alma de una artista ucraniana y la precisión de un ingeniero chileno. Inna, pintora y profesora, compone cada imagen con la sensibilidad de un lienzo, buscando la emoción y la luz que transforman un instante en arte. Francisco, con mirada metódica y técnica, perfecciona cada detalle. Juntos, no solo capturamos momentos; esculpimos recuerdos atemporales, uniendo pasión y técnica para contar tu historia de una forma única e inolvidable. ¿Listos para crear algo extraordinario?</p>
-
-        <a href="#portfolio" class="btn btn-outline-warning mt-3">Explora nuestro trabajo</a>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="about-content">
+          <h3 class="about-heading mb-4">Hola, somos <span class="highlight">Francisco e Inna</span></h3>
+          <p class="about-text mb-4">
+            Somos Inna y Francisco: la fusión perfecta entre el alma de una artista ucraniana y la precisión de un ingeniero chileno. Inna, pintora y profesora, compone cada imagen con la sensibilidad de un lienzo, buscando la emoción y la luz que transforman un instante en arte.
+          </p>
+          <p class="about-text mb-4">
+            Francisco, con mirada metódica y técnica, perfecciona cada detalle. Juntos, no solo capturamos momentos; esculpimos recuerdos atemporales, uniendo pasión y técnica para contar tu historia de una forma única e inolvidable.
+          </p>
+          <div class="about-features mb-4">
+            <div class="feature-item">
+              <i class="bi bi-camera-fill"></i>
+              <span>Fotografía Profesional</span>
+            </div>
+            <div class="feature-item">
+              <i class="bi bi-palette-fill"></i>
+              <span>Arte Visual</span>
+            </div>
+            <div class="feature-item">
+              <i class="bi bi-globe"></i>
+              <span>Chile & Canadá</span>
+            </div>
+          </div>
+          <a href="#portfolio" class="btn btn-outline-warning btn-about">
+            <i class="bi bi-arrow-right me-2"></i>Explora nuestro trabajo
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -79,10 +164,14 @@
   <!-- Portfolio -->
 
 <!-- PORTAFOLIO -->
-<!-- PORTAFOLIO (reemplaza tu bloque actual) -->
-<section id="portfolio" class="portfolio-section p-1">
-  <div class="container text-center" data-aos="fade-up">
-    <h2 class="mb-5">Nuestro Portafolio</h2>
+<section id="portfolio" class="portfolio-section">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Galería</span>
+      <h2 class="section-title mb-3">Nuestro Portafolio</h2>
+      <div class="title-divider"></div>
+      <p class="section-description mt-4">Descubre la belleza capturada a través de nuestro lente</p>
+    </div>
 
     <!-- Grid Masonry -->
     <div id="gallery" class="grid">
@@ -342,7 +431,69 @@
           </div>
         </a>
       </div>                     
-
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_0847.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_0847.JPG" alt="Colores de invierno">
+          <div class="item-overlay">
+            <h3>Colores de invierno</h3>
+            <p>Parque Omega</p>
+          </div>
+        </a>
+      </div>   
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_0852.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_0852.JPG" alt="Colores de invierno">
+          <div class="item-overlay">
+            <h3>Colores de invierno</h3>
+            <p>Parque Omega</p>
+          </div>
+        </a>
+      </div>   
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_0919.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_0919.JPG" alt="Animales">
+          <div class="item-overlay">
+            <h3>Animales</h3>
+            <p>Lobos en la nieve</p>
+          </div>
+        </a>
+      </div>   
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_1021.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_1021.JPG" alt="Animales">
+          <div class="item-overlay">
+            <h3>Animales</h3>
+            <p>Lobos en la nieve</p>
+          </div>
+        </a>
+      </div>
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_0947.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_0947.JPG" alt="Animales">
+          <div class="item-overlay">
+            <h3>Animales</h3>
+            <p>Venados en la nieve</p>
+          </div>
+        </a>
+      </div>   
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_1045.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_1045.JPG" alt="Animales">
+          <div class="item-overlay">
+            <h3>Animales</h3>
+            <p>Venados en la nieve</p>
+          </div>
+        </a>
+      </div>  
+      <div class="grid-item" data-aos="zoom-in">
+        <a class="glightbox" href="assets/img/portfolio/IMG_0857.JPG" data-gallery="studio">
+          <img src="assets/img/portfolio/IMG_0857.JPG" alt="Animales">
+          <div class="item-overlay">
+            <h3>Animales</h3>
+            <p>Venados en la nieve</p>
+          </div>
+        </a>
+      </div>         
       <!-- Repite grid-item para todas las imágenes -->
       <!-- ... -->
     </div>
@@ -419,24 +570,69 @@
   </section>
 -->
   <!-- Contact -->
-  <section id="contact" class="py-5 text-center">
-    <div class="container" data-aos="fade-up">
-      <h3>Contáctanos</h3>
-      <p>Haz clic en el botón para escribirnos por WhatsApp.</p>
-      <a href="https://wa.me/15555555555?text=¡Hola!%20Estoy%20interesado%20en%20las%20fotos%20de%20Studio%20M%26M."
-         target="_blank" class="btn btn-success btn-lg shadow">
-        <i class="bi bi-whatsapp"></i> Enviar WhatsApp
-      </a>
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-label">Hablemos</span>
+        <h2 class="section-title mb-3">Contáctanos</h2>
+        <div class="title-divider"></div>
+        <p class="section-description mt-4">¿Tienes un proyecto en mente? Estamos aquí para hacerlo realidad.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-card text-center">
+            <div class="contact-icon mb-4">
+              <i class="bi bi-envelope-heart"></i>
+            </div>
+            <h3 class="contact-title mb-4">¿Listos para crear algo extraordinario?</h3>
+            <p class="contact-text mb-5">
+              Escríbenos por WhatsApp y conversemos sobre tu proyecto. Estaremos encantados de ayudarte a capturar esos momentos especiales.
+            </p>
+            <a href="https://wa.me/56982307788?text=¡Hola!%20Estoy%20interesado%20en%20las%20fotos%20de%20Studio%20M%26M."
+               target="_blank" class="btn btn-whatsapp btn-lg">
+              <i class="bi bi-whatsapp me-2"></i> Enviar WhatsApp
+            </a>
+            <div class="contact-info mt-5">
+              <div class="info-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Chile & Canadá</span>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-clock-fill"></i>
+                <span>Disponible para proyectos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-white py-3" style="background-color:#001F3B;">
-    <p>&copy; 2025 Studio M&amp;M | Chile - Canadá</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center py-4">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 <strong>Studio M&amp;M</strong>. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="footer-location">
+            <i class="bi bi-geo-alt me-2"></i>
+            <span>Chile - Canadá</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container text-center py-2">
+        <p class="mb-0">Hecho con <i class="bi bi-heart-fill text-danger"></i> para capturar momentos únicos</p>
+      </div>
+    </div>
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/15555555555?text=¡Hola!%20Estoy%20interesado%20en%20las%20fotos%20de%20Studio%20M%26M."
+  <a href="https://wa.me/56982307788?text=¡Hola!%20Estoy%20interesado%20en%20las%20fotos%20de%20Studio%20M%26M."
      class="whatsapp-float" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
