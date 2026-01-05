@@ -69,14 +69,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // GLightbox configuration
+  // Auto-add data-title and data-description to glightbox links from overlay content
+  // This must run BEFORE GLightbox initialization
+  document.querySelectorAll('.glightbox').forEach(link => {
+    const overlay = link.querySelector('.item-overlay');
+    if (overlay) {
+      const title = overlay.querySelector('h3')?.textContent?.trim() || '';
+      const description = overlay.querySelector('p')?.textContent?.trim() || '';
+      
+      // Set data-title (required for GLightbox to show description)
+      if (title && !link.getAttribute('data-title')) {
+        if (description) {
+          link.setAttribute('data-title', `${title} – ${description}`);
+        } else {
+          link.setAttribute('data-title', title);
+        }
+      }
+      
+      // Also set data-description if needed
+      if (description && !link.getAttribute('data-description')) {
+        link.setAttribute('data-description', description);
+      }
+    }
+  });
+
+  // GLightbox configuration with description support
   const lightbox = GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
     loop: true,
     autoplayVideos: true,
     openEffect: 'fade',
-    closeEffect: 'fade'
+    closeEffect: 'fade',
+    descPosition: 'bottom',
+    showDesc: true
   });
 
   // Masonry Gallery with Filters

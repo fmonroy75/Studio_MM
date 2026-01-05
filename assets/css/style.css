@@ -439,7 +439,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
-  overflow: visible;
+  overflow: hidden;
   clear: both;
   position: relative;
   min-height: 200px;
@@ -501,12 +501,14 @@ h1, h2, h3, h4, h5, h6 {
   height: auto;
   display: block;
   border-radius: 15px;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  transition:transform 1.2s ease;
+  /*transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;*/
 }
 
 .grid-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
   filter: brightness(0.85);
+
 }
 
 /* Overlay con texto */
@@ -519,14 +521,19 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,31,59,0.95) 100%);
   color: #fff;
   opacity: 0;
-  transform: translateY(20px);
-  transition: var(--transition);
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+ /* transition: var(--transition);*/
   border-radius: 0 0 15px 15px;
+  opacity: 0;
+  
+
 }
 
 .grid-item:hover .item-overlay {
   opacity: 1;
   transform: translateY(0);
+  
 }
 
 .item-overlay h3 {
@@ -814,18 +821,24 @@ html {
 
 .filters button {
   background: transparent;
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   color: var(--primary-color);
-  padding: 0.75rem 1.5rem;
+  padding: 8px 18px;
+  border-radius: 30px;
+  margin: 4px;
+ /* padding: 0.75rem 1.5rem;
   border-radius: 50px;
-  margin: 0;
+  margin: 0;*/
   cursor: pointer;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ /* transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);*/
+ transition: all .4s ease;
   position: relative;
   overflow: hidden;
 }
+
+
 
 .filters button::before {
   content: '';
@@ -856,4 +869,100 @@ html {
 .filters button.active {
   background: linear-gradient(135deg, var(--primary-color), #003366);
   box-shadow: 0 4px 16px rgba(0, 31, 59, 0.4);
+}
+
+/* === GLightbox Custom Styles === */
+.gslide-description {
+  background: rgba(0, 31, 59, 0.95) !important;
+  backdrop-filter: blur(10px);
+  color: var(--text-light) !important;
+  padding: 1.5rem 2rem !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  border-top: 2px solid var(--accent-color);
+  margin-top: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.gslide-description .gslide-title {
+  color: var(--accent-color) !important;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block !important;
+}
+
+.gslide-description .gslide-desc {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  display: block !important;
+}
+
+/* Ensure description container is visible */
+.glightbox-container .gslide-description {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.gslide-media {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.gbtn-close {
+  background: rgba(0, 31, 59, 0.8);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  right: 20px;
+  transition: var(--transition);
+}
+
+.gbtn-close:hover {
+  background: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.gbtn-close svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-light);
+}
+
+.gbtn-close:hover svg {
+  stroke: var(--primary-color);
+}
+
+.gprev,
+.gnext {
+  background: rgba(0, 31, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: var(--transition);
+}
+
+.gprev:hover,
+.gnext:hover {
+  background: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.gprev svg,
+.gnext svg {
+  stroke: var(--text-light);
+  width: 24px;
+  height: 24px;
+}
+
+.gprev:hover svg,
+.gnext:hover svg {
+  stroke: var(--primary-color);
 }
